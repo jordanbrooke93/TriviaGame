@@ -1,0 +1,54 @@
+body {
+    font-family: 'Cinzel', serif;
+    color: white;
+    font-size: 20px;
+}
+
+#startButton {
+    margin-top: 375px;
+    
+}
+
+section {
+    display: none; 
+}
+
+#lastSection {
+    display: none; 
+    text-align: center;
+    margin-top: 300px;
+}
+
+#header {
+    
+}
+
+#timeRemaining {
+   
+}
+
+#questions {
+   
+}
+
+answers {
+   
+}
+
+#doneButton{
+   
+}
+
+h1{
+    font-size: 100px;
+   
+}
+
+#correctAnswers{
+   margin-right: 212px;
+}
+
+#incorrectAnswers{
+    margin-right: 200px;
+}
+
