@@ -27,39 +27,52 @@ var gameinfo = [
     {
         q: "1. Who turned Victor Stone into Cyborg?",
         a: [" his mother", " his father", " his boss", " Superman"],
-        correctAnswer: "his father"
+        correctAnswer: " his father"
     },
     {
         q: "2. Which character came back to life?",
         a: [" Wonder Woman", " Cyborg", " Superman", " Batman"],
-        correctAnswer: "Superman"
+        correctAnswer: " Superman"
     },
     {
         q: "3. Who is the only female character within the group?",
         a: [" Batman", " Aquaman", " Flash", " Wonder Woman"],
-        correctAnswer: "Wonder Woman"
+        correctAnswer: " Wonder Woman"
     },
     {
         q: "4. Who got the group together?",
         a: [" Cyborg", " Flash", " Batman", " Wonder Woman"],
-        correctAnswer: "Batman"
+        correctAnswer: " Batman"
     },
     {
         q: "5. Which character lives on both land and water?",
         a: [" Aquaman", " WonderWoman", " Flash", " Cyborg"],
-        correctAnswer: "Aquaman"
+        correctAnswer: " Aquaman"
     }
 ];
-var seconds = 30;
-setTimeout(decrement, 1000);
+var seconds = 31;
+var intervalId;
+
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+}
 
 function decrement() {
-    seconds = seconds - 1;
-    if (seconds <= 0) {
-        clearInterval(setTimeout);
-    }
-    $("#display").text(seconds);
-};
+    seconds--
+    $("#timeRemaining").html(seconds)
+
+    if (seconds === 0) [
+        stop()
+    ]
+}
+
+function stop() {
+    clearInterval(intervalId);
+}
+
+run();
+
 
 // Start Game
 $('#startButton').on('click', function () {
@@ -94,11 +107,17 @@ function startGame() {
 
 function checkAnswer() {
     for (var c = 0; c < gameinfo.length; c++) {
-        if ($("input[name='answer0']:checked")) {
-            console.log("checked")
-            if ($(this).val() === gameinfo[0].correctAnswer) {
+        var input = $("input[name='answer" + [c] + "']:checked")
+        console.log(gameinfo[c].correctAnswer)
+        if ($(input)) {
+            console.log($(input).val())
+            if ($(input).val() === gameinfo[c].correctAnswer) {
                 console.log("correct")
-                correct++
+                correct++;
+                $("#display").text("correct")
+            } else {
+                incorrect++;
+                $("#display").text("incorrect")
             }
         }
     }

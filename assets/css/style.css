@@ -1,7 +1,8 @@
 body {
     font-family: 'Cinzel', serif;
-    color: white;
+    /* color: white; */
     font-size: 20px;
+    background-image: url(assets/images/jl.jpg); 
 }
 
 #startButton {
@@ -46,9 +47,11 @@ h1{
 
 #correctAnswers{
    margin-right: 212px;
+   color: white;
 }
 
 #incorrectAnswers{
     margin-right: 200px;
+    color: white;
 }
 
