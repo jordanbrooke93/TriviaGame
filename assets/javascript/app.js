@@ -21,8 +21,7 @@
 // Don't forget to include a countdown timer.
 
 
-var correct = 0;
-var incorrect = 0;
+
 var gameinfo = [
     {
         q: "1. Who turned Victor Stone into Cyborg?",
@@ -50,6 +49,9 @@ var gameinfo = [
         correctAnswer: " Aquaman"
     }
 ];
+
+var correct = 0;
+var incorrect = 0;
 var seconds = 31;
 var intervalId;
 
@@ -60,7 +62,7 @@ function run() {
 
 function decrement() {
     seconds--
-    $("#timeRemaining").html(seconds)
+    $("#timeRemaining").html("Time remaining: " + seconds)
 
     if (seconds === 0) [
         stop()
@@ -71,7 +73,7 @@ function stop() {
     clearInterval(intervalId);
 }
 
-run();
+
 
 
 // Start Game
@@ -79,6 +81,7 @@ $('#startButton').on('click', function () {
     startGame()
     $("#startButton").hide()
     $("section").show()
+    run();
     decrement()
 });
 
@@ -114,7 +117,7 @@ function checkAnswer() {
             if ($(input).val() === gameinfo[c].correctAnswer) {
                 console.log("correct")
                 correct++;
-                $("#display").text("correct")
+                $("#display").html("correct")
             } else {
                 incorrect++;
                 $("#display").text("incorrect")
